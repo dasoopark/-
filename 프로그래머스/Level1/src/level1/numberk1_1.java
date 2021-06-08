@@ -34,21 +34,21 @@ public class numberk1_1 {
 	        int[] arr = new int[3];
 	        ArrayList<Integer> temp = new ArrayList<>();
 	        
-	        for(int i=0; i<commands.length; i++)
+	        for(int i=0; i<commands.length; i++)		// 2차원 배열 0, 1, 2 
 	        {
 	            for(int j=0; j<3;j++)
 	            {
 	                arr[j] = commands[i][j];
 	            }
-	            for(int j=arr[0]-1; j<arr[1];j++)
+	            for(int j=arr[0]-1; j<arr[1];j++)		//배열 카운터 때문에 arr[0]-1 부터 시작 
 	            {
 	                temp.add(array[j]);
 	            }
 	            Collections.sort(temp);
-	            answer[i] = temp.get(arr[2]-1);
+	            answer[i] = temp.get(arr[2]-1);		// 마찬 가지로 배열 카운터 때문에 값 저장할 때 1빼줘야함
 	            for(int j =0; j<temp.size(); j++)
 	            {
-	                temp.clear();
+	                temp.clear();		//temp 값 리스트에 남아있는거 초기화 해줘야함
 	            }
 	        }
 	        

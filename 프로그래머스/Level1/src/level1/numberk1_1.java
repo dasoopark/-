@@ -42,7 +42,7 @@ public class numberk1_1 {
 	            }
 	            for(int j=arr[0]-1; j<arr[1];j++)		//배열 카운터 때문에 arr[0]-1 부터 시작 
 	            {
-	                temp.add(array[j]);
+	                temp.add(array[j]); 
 	            }
 	            Collections.sort(temp);
 	            answer[i] = temp.get(arr[2]-1);		// 마찬 가지로 배열 카운터 때문에 값 저장할 때 1빼줘야함

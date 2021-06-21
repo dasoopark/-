@@ -30,6 +30,21 @@ strings					n	return
  답은 ["abcd", "abce", "cdx"] 입니다. 
  
  */
+
+/* 
+ 코드 풀이
+ 1. 반환할 배열 answer의 길이는 strings배열과 같으므로 strings.length로 지정한다.
+
+2. n번째문자를 기존 문자열에 붙여 만든 새로운 문자열을 넣을 ArrayList를 생성한다.
+
+3. strings의 길이만큼 반복문을 사용해 새로운 문자열(strings[i].charAt(n) + strings[i])을 넣어준다.
+
+   (ex) sun -> usun, car -> acar)
+
+4. Collections.sort()함수로 정렬한다.
+
+5. 정렬된 배열을 substring을 사용해 1~마지막으로 자른다.
+ */
 public class wantsortString {
 
 	

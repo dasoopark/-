@@ -55,7 +55,6 @@ public class string_p_ynum {
 	
 	public static void main(String[] args) {
 		System.out.println(solution("pPoooyY"));
-
 	}
 
 }

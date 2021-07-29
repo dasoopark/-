@@ -38,6 +38,9 @@ public class class_boss_01 {
 			//키의 값을 가져오면서  +1씩 해주면서 갱신함!
 		}
 		
+		//containsKey => 애라는 키 가 있냐 ? True or False 리턴
+		System.out.println(map.containsKey('A'));
+		System.out.println(map.size()); //Key의 Size  반환
 		// 존재하는 map의 모든 key 탐색
 		int max = Integer.MIN_VALUE;
 		for (char key : map.keySet())

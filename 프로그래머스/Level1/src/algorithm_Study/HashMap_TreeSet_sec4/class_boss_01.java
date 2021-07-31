@@ -26,6 +26,8 @@ BACBACCACCBDEDE
 예시 출력 1
 C
  */
+
+// 푸는법 : key를 다 +1씩 해놓고, 다시 key가 들어올 때 -1씩해서 모두 0이면 아나그램임.
 public class class_boss_01 {
 	static char solution(int n, String s)
 	{

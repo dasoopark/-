@@ -1,5 +1,8 @@
 package algorithm_Study.Recursive_Tree_Graph_sec7;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /*
  설명
 
@@ -23,11 +26,49 @@ package algorithm_Study.Recursive_Tree_Graph_sec7;
 예시 출력 1
 3
  */
-public class find_cow_08 {
+public class find_cow_08 { //BFS 문제!!!!!!!!!!!!!!!
+	int answer = 0;
+	static int[] dis = {1,-1,5};
+	static int[] ch; //한번 Q에 들어간거 (중복 경우 제거)
+	static Queue<Integer> Q = new LinkedList<>();
+	
+	static int BFS(int s, int e)
+	{
+			ch =  new int[10001]; //좌표가 1부터 10.000 까지니깐
+			ch[s] = 1;
+			Q.offer(s); //시작지
+			
+			int L =0;
+			while(!Q.isEmpty()) //비어있을때 멈춘다
+			{
+				int len = Q.size(); //레벨에 있는 원소의 개수 ,0 레벨 은 1개 , 1레벨은 3개 // 원노트 그림 참고
+				for(int i=0;i<len;i++)
+				{
+					int x = Q.poll(); //원소 꺼냄
+					
+					for(int j=0; j<3;j++)
+					{
+						int nx = x+dis[j]; //자식노드 
+						if(nx==e)
+						{
+							return L+1;
+						}
+						if(nx>=1 && nx<=10000 && ch[nx]==0) //ch가 0이면 방문 안한거임
+						{
+							Q.offer(nx);
+						}
+					}
+				}
+				L++;
+			}
+			return 0;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int s = 5;
+		int e = 14;
+		System.out.println(BFS(s,e));
 	}
 
 }

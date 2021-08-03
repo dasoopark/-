@@ -26,7 +26,7 @@ import java.util.Queue;
 예시 출력 1
 3
  */
-public class find_cow_08 { //BFS 문제!!!!!!!!!!!!!!!
+public class find_cow_BFS_08 { //BFS 문제!!!!!!!!!!!!!!!
 	int answer = 0;
 	static int[] dis = {1,-1,5};
 	static int[] ch; //한번 Q에 들어간거 (중복 경우 제거)

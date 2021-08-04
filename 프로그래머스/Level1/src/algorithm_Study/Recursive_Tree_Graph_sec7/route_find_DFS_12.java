@@ -26,7 +26,8 @@ import java.util.Scanner;
  
  입력예제 1.
  5 9 
- 1 2 
+ 1 2   //1번에서 2번으로 간다
+ 
  1 3
  1 4
  2 1
@@ -36,8 +37,7 @@ import java.util.Scanner;
  4 2
  4 5
  
- //1번에서 2번으로 간다
- 
+
  출력예제1.
  6
  */

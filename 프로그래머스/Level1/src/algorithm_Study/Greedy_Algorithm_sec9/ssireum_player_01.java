@@ -48,7 +48,9 @@ N명의 지원자가 주어지면 위의 선발원칙으로 최대 몇 명의 선수를 선발할 수 있는지 �
 3
 
  */
-class Body implements Comparable<Body> //섹션6 좌표정렬 가서 배워오기
+//객체를 정렬하기 위해서 Comparable 을 사용 (특정 자료형을 기준으로 객체를 정렬하고자 할 때)
+//Body 객체 => 똑같이 넣어주기
+class Body implements Comparable<Body>  //섹션6 좌표정렬 가서 배워오기
 {
 	public int h, w;
 	Body(int h, int w)
@@ -57,7 +59,7 @@ class Body implements Comparable<Body> //섹션6 좌표정렬 가서 배워오기
 		this.w = w;
 	}
 	@Override
-	public int compareTo(Body o)
+	public int compareTo(Body o) //오버라이드 해줘야함
 	{
 		return o.h - this.h;
 	}

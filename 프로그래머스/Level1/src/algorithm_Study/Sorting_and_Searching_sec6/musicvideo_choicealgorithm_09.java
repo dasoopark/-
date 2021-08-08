@@ -1,5 +1,10 @@
 package algorithm_Study.Sorting_and_Searching_sec6;
 
+import java.util.Arrays;
+import java.util.OptionalInt;
+import java.util.Scanner;
+import java.util.stream.IntStream;
+
 /*
  9. 뮤직비디오(결정알고리즘)
 설명
@@ -11,9 +16,11 @@ DVD에는 총 N개의 곡이 들어가는데, DVD에 녹화할 때에는 라이브에서의 순서가 그대로
 고민 끝에 지니레코드는 M개의 DVD에 모든 동영상을 녹화하기로 하였다. 이 때 DVD의 크기(녹화 가능한 길이)를 최소로 하려고 한다.
 그리고 M개의 DVD는 모두 같은 크기여야 제조원가가 적게 들기 때문에 꼭 같은 크기로 해야 한다.
 입력
+
 첫째 줄에 자연수 N(1≤N≤1,000), M(1≤M≤N)이 주어진다.
 다음 줄에는 조영필이 라이브에서 부른 순서대로 부른 곡의 길이가 분 단위로(자연수) 주어진다.
 부른 곡의 길이는 10,000분을 넘지 않는다고 가정하자.
+
 출력
 첫 번째 줄부터 DVD의 최소 용량 크기를 출력하세요.
 예시 입력 1 
@@ -22,6 +29,7 @@ DVD에는 총 N개의 곡이 들어가는데, DVD에 녹화할 때에는 라이브에서의 순서가 그대로
 
 예시 출력 1
 17
+
 힌트
 설명 : 3개의 DVD용량이 17분짜리이면 (1, 2, 3, 4, 5) (6, 7), (8, 9) 이렇게 3개의 DVD로 녹음을 할 수 있다.
 
@@ -30,9 +38,59 @@ DVD에는 총 N개의 곡이 들어가는데, DVD에 녹화할 때에는 라이브에서의 순서가 그대로
 
  */
 public class musicvideo_choicealgorithm_09 {
+	static int count(int []arr, int capacity)//디비디가 몇 장 필요하다고 리턴  
+	{	//capacity = m값(lt+rt)/2
+		int cnt = 1; //DVD 장수 
+		int sum = 0; //dvd에 담아내는 길이
+		
+		for(int x : arr)
+		{
+			if(sum+x>capacity) // 첫번 째곡 sum에 넣기
+			{
+				cnt++;  //m값 초과 하면 새로운 dvd 가 필요함!
+				sum = x; //sum은 현재 dvd에 녹음되고 있는 용량이 얼마나 차지 되는가
+			}
+			else
+			{
+				sum+=x; //
+			}
+			
+		}
+		return cnt;
+	}
+	
+	static int solution(int n, int m, int[] arr) 
+	{
+		int answer =0;
+		int lt = Arrays.stream(arr).max().getAsInt(); //최대값 간편하게 찾아주는 메서드
+		int rt = Arrays.stream(arr).sum();
+		while(lt<=rt)
+		{
+			int mid = (lt+rt)/2;
+			if(count(arr,mid)<=m) //목표값 보다 작게 나왔을때 EX) 3장 필요한데 2장 나옴 그럼 당연히 3장도 가능하단 뜻
+			{
+				answer=mid;
+				rt = mid-1;
+			}
+			else
+			{ // OneNote 참고하세요!
+				lt = mid+1;
+			}
+		}
+		return answer;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		int m = kb.nextInt();
+		int []arr = new int[n];
+		for(int i =0;i<n;i++)
+		{
+			arr[i] = kb.nextInt();
+		}
+		System.out.println(solution(n,m,arr));
 
 	}
 

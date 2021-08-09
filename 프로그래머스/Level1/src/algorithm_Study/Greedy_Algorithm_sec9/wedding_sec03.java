@@ -35,39 +35,41 @@ import java.util.Scanner;
 예시 출력 1
 2
  */
-class Time implements Comparable<Time>
+
+
+class Time3 implements Comparable<Time3>
 {
-	public int time;
+	public int Time3;
 	public char state;
-	Time(int time, char state)
+	Time3(int Time3, char state)
 	{
-		this.time = time;
+		this.Time3 = Time3;
 		this.state = state;
 	}
 	@Override
-	public int compareTo(Time ob)
+	public int compareTo(Time3 ob)
 	{
-		if(this.time == ob.time)
+		if(this.Time3 == ob.Time3)
 		{
 			return this.state-ob.state; //시간이 같았을 때 알파벳에서 정렬하라.
 		}
 		else
 		{
-			return this.time-ob.time; //아니라면 회의 끝나는 시간만 오름차순 정렬  이패턴 중요하니깐 외워두세요
+			return this.Time3-ob.Time3; //아니라면 결혼 끝나는 시간만 오름차순 정렬  이패턴 중요하니깐 외워두세요
 		}
 	}
 }
 
-
 public class wedding_sec03 {
 	
-	static int solution(ArrayList<Time> arr)
+
+	static int solution(ArrayList<Time3> arr)
 	{
 		int answer =Integer.MIN_VALUE;
 		Collections.sort(arr); //알파벳 e가 먼저 나옴 - 오름 차순
 		int cnt = 0;
 		
-		for(Time ob : arr)
+		for(Time3 ob : arr)
 		{
 			if(ob.state=='s')
 			{
@@ -76,8 +78,8 @@ public class wedding_sec03 {
 			else
 			{
 				cnt--;
-				answer = Math.max(answer, cnt); //cnt가 answer보다 크면 갱신시키기
 			}
+			answer = Math.max(answer, cnt); //cnt가 answer보다 크면 갱신시키기
 		}
 		return answer;
 	}
@@ -85,16 +87,16 @@ public class wedding_sec03 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-
+		
 				Scanner kb = new Scanner(System.in);
 				int n = kb.nextInt();
-				ArrayList<Time> arr = new ArrayList<>();
+				ArrayList<Time3> arr = new ArrayList<>();
 				for(int i =0; i<n; i++)
 				{
 					int sT = kb.nextInt();
 					int eT = kb.nextInt();
-					arr.add(new Time(sT, 's'));
-					arr.add(new Time(eT, 'e'));
+					arr.add(new Time3(sT, 's'));
+					arr.add(new Time3(eT, 'e'));
 				}
 				System.out.println(solution(arr));
 

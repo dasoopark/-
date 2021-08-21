@@ -52,7 +52,7 @@ public class LIS_03 {
 					}
 					dy[i]=max+1;
 					answer=Math.max(answer, dy[i]);
-				} 
+				}
 			}
 			
 			return answer;

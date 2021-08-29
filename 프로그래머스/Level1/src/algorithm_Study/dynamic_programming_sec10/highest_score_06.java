@@ -1,5 +1,7 @@
 package algorithm_Study.dynamic_programming_sec10;
 
+import java.util.Scanner;
+
 /*
  3. 최대점수 구하기(DFS)
 설명
@@ -34,7 +36,20 @@ public class highest_score_06 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		int m = kb.nextInt();
+		int[] dy = new int[m+1];
+		for(int i=0; i<n;i++)
+		{
+			int ps = kb.nextInt();
+			int pt = kb.nextInt();
+			for(int j=m; j>=pt;j--) //중복 제거하려고 뒤에서 돔
+			{
+				dy[j] = Math.max(dy[j], dy[j-pt]+ps);
+			}
+		}
+		System.out.println(dy[m]);
 	}
 
 }

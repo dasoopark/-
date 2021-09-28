@@ -1,5 +1,6 @@
 package algorithm_Study.DFS_BFS_sec8;
 
+import java.util.Scanner;
 
 /*
  5. 동전교환
@@ -30,9 +31,39 @@ package algorithm_Study.DFS_BFS_sec8;
 
 
 public class coin_exchange_05 {
+	static int n, m, answer = Integer.MAX_VALUE;
+	static void DFS(int L, int sum, int[] arr)
+	{
+		if(sum>m)
+		{
+			return; //무한으로 안돌기 위한 방법
+		}
+		if(sum == m ) //m => 거슬러 주는  금액이 됐을 때
+		{
+			answer = Math.min(answer, L); //L은 sum을 만들어내는 동전의개수, 최종값 보다 작으면 바꿔주면 됨 
+		}
+		else
+		{
+			for(int i=0; i<n; i++)
+			{
+				DFS(L+1, sum+arr[i], arr); //L+1 =>동전 개수 하나 사용하는거니까 증가시켜줘야함
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner kb = new Scanner(System.in);
+		n = kb.nextInt();
+		int[] arr = new int[n];
+		for(int i=0; i<n;i++)
+		{
+			
+			arr[i]=kb.nextInt();
+		}
+		m = kb.nextInt();
+		DFS(0, 0, arr);
+		System.out.println(answer);
 
 	}
 

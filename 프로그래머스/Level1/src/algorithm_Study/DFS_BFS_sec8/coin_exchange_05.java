@@ -1,5 +1,7 @@
 package algorithm_Study.DFS_BFS_sec8;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 /*
@@ -32,11 +34,16 @@ import java.util.Scanner;
 
 public class coin_exchange_05 {
 	static int n, m, answer = Integer.MAX_VALUE;
-	static void DFS(int L, int sum, int[] arr)
+	static void DFS(int L, int sum, Integer[] arr)
 	{
 		if(sum>m)
 		{
 			return; //무한으로 안돌기 위한 방법
+		}
+		if(L>=answer)
+		{
+			return;
+			//더 깊은걸 볼 필요 없음
 		}
 		if(sum == m ) //m => 거슬러 주는  금액이 됐을 때
 		{
@@ -55,12 +62,13 @@ public class coin_exchange_05 {
 		// TODO Auto-generated method stub
 		Scanner kb = new Scanner(System.in);
 		n = kb.nextInt();
-		int[] arr = new int[n];
+		Integer[] arr = new Integer[n]; //객체형으로 받아야 밑에서 reversOrder로 내림차순 할 수 있음.
 		for(int i=0; i<n;i++)
 		{
 			
 			arr[i]=kb.nextInt();
 		}
+		Arrays.sort(arr, Collections.reverseOrder());
 		m = kb.nextInt();
 		DFS(0, 0, arr);
 		System.out.println(answer);

@@ -1,5 +1,7 @@
 package algorithm_Study.DFS_BFS_sec8;
 
+import java.util.Scanner;
+
 /*
  10 이하의 N개의 자연수가 주어지면 이 중 M개를 뽑아 일렬로 나열하는 방법을 모두 출력합니다.
 
@@ -29,9 +31,25 @@ package algorithm_Study.DFS_BFS_sec8;
  */
 public class nodup_permutation_06 {
 
+	static int[] pm, ch, arr;
+	static int n, m;
+	static void DFS(int L)
+	{
+		
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Scanner kb = new Scanner(System.in);
+		n = kb.nextInt();
+		m = kb.nextInt();
+		arr = new int[n];
+		for(int i = 0; i< n; i++)
+		{
+			arr[i] = kb.nextInt();
+		}
+		ch = new int[n];
+		pm = new int[m];
+		DFS(0);
 	}
 
 }

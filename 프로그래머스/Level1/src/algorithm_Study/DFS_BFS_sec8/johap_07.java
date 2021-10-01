@@ -32,7 +32,7 @@ nCr =  n-1Cr-1 + n-1Cr
 818809200
  */
 public class johap_07 {
-	int[][] dy = new int[35][35]; //메모이 제	이션
+	static int[][] dy = new int[35][35]; //메모이 제	이션
 	static int DFS(int n, int r)
 	{
 		if(dy[n][r]>0) return dy[n][r];//구해져 있다면 뻗지말아라

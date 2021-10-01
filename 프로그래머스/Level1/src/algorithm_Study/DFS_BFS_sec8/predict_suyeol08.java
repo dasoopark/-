@@ -39,7 +39,7 @@ N은 가장 윗줄에 있는 숫자의 개수를 의미하며 F는 가장 밑에 줄에 있는 수로 1,000,0
 public class predict_suyeol08 {
 	static int[] b, p, ch;
 	static int n, f;
-	boolean flag = false;
+	static boolean flag = false;
 	static int[][] dy = new int[35][35];
 	static int combi(int n, int r)
 	{
@@ -47,6 +47,44 @@ public class predict_suyeol08 {
 		{
 			return dy[n][r];
 				
+		}
+		if(n==r || r==0)
+		{
+			return 1;
+		}
+		else
+		{
+			return dy[n][r] = combi(n-1, r-1)+combi(n-1, r);
+		}
+	}
+	
+	static void DFS(int L, int sum)
+	{
+		
+		if(flag) return; //사실이면 재귀 바로 뺴버림
+		if(L==n)
+		{
+			if(sum==f)
+			{
+				for(int x:p)
+				{
+					System.out.println(x+" ");
+					flag = true; //답을 발견하면 트루로!
+				}
+			}
+		}
+		else
+		{
+			for(int i=1; i<=n;i++)
+			{
+				if(ch[i]==0)
+				{
+					ch[i] = 1; //체크 //i값 자체가 데이타, 순열, 인덱스 아님
+					p[L] = i; //i자체가 순열
+					DFS(L+1, sum+(p[L]*b[L]));
+					ch[i]=0;
+				}
+			}
 		}
 	}
 	public static void main(String[] args) {
@@ -56,11 +94,12 @@ public class predict_suyeol08 {
 		f = kb.nextInt();
 		b = new int[n];
 		p = new int[n];
-		ch = new int[n+1];
+		ch = new int[n+1]; //체크 배열 - 체크 1부터 사용
 		for(int i=0;i<n;i++)
 		{
 			b[i] = combi(n-1, i);
 		}
+		DFS(0, 0);
 	}
 
 }

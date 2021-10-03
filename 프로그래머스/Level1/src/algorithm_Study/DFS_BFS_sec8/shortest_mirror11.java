@@ -69,7 +69,12 @@ public class shortest_mirror11 {
 			{
 				int nx = tmp.x+dx[i];
 				int ny = tmp.y+dy[i];
-				if()
+				if(nx>=1 && nx<=7 && ny>=1 && ny<=7 && board[nx][ny]==0)
+				{
+					board[nx][ny]=1;
+					Q.offer(new Point(nx, ny));
+					dis[nx][ny]=dis[tmp.x][tmp.y]+1; //현재지점
+				}
 			}
 		}
 	}
@@ -88,7 +93,7 @@ public class shortest_mirror11 {
 		BFS(1,1);
 		if(dis[7][7]==0)
 		{
-			System.out.println(-1);
+			System.out.println(-1); //마지막일때
 		}
 		else
 		{

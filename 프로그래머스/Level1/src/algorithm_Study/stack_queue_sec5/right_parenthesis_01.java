@@ -1,5 +1,8 @@
 package algorithm_Study.stack_queue_sec5;
 
+import java.util.Scanner;
+import java.util.Stack;
+
 /*
  //스택 사용 대표 문제 (LIFO) => Last in First Out
   * 
@@ -28,9 +31,38 @@ NO
 
  */
 public class right_parenthesis_01 {
+	static String solution(String str)
+	{
+		String answer = "YES";	
+		Stack<Character> stack = new Stack<>();
+		for(char x : str.toCharArray()) //문자배열 하나 생성
+		{
+			if(x=='(')
+			{
+				stack.push(x); //이 때 x는 여는 괄호
+			}
+			else
+			{
+				if(stack.isEmpty()) //닫는 괄호가 나왔는데 스택이 비어있는 경우? - 짝이 안맞는 다는 뜻이므로 올바르지않은 괄호
+					//닫는 괄호가 많은 경우
+				{
+					return "No";
+				}
+				stack.pop();
+			}
+			if(!stack.isEmpty()) //스택에 뭔가 있으면 참이 되는거 //여는 괄호가 많아서 스택에 남아있는 경우를 의미
+ 			{
+				return "No";
+			}
+		}
+		return answer;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner kb = new Scanner(System.in);
+		String str = kb.next();
+		System.out.println(solution(str));
 
 	}
 

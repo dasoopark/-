@@ -73,6 +73,19 @@ public class pizza_baedal_dfs_15 {
 	{
 		if(L==m)
 		{
+			int sum = 0;
+			for(Point3 h : hs)
+			{
+				int dis = Integer.MAX_VALUE;
+				for(int i : combi)
+				{
+					dis = Math.min(dis, Math.abs(h.x-pz.get(i).x)+Math.abs(h.y-pz.get(i).y));
+				}
+				//dis 는 각 집의 피자 배달 거리가 나옴
+				sum += dis; //각집들마다 sum에 누적 - 도시의 배달 거리 
+			}
+			answer = Math.min(answer, sum);
+			
 			for(int x : combi)
 			{
 				System.out.print(x+ " ");

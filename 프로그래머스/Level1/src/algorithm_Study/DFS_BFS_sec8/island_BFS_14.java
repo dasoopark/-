@@ -3,7 +3,7 @@ package algorithm_Study.DFS_BFS_sec8;
 import java.util.Scanner;
 
 /*
- 13. 섬나라 아일랜드
+ 14. 섬나라 아일랜드
 설명
 
 N*N의 섬나라 아일랜드의 지도가 격자판의 정보로 주어집니다.
@@ -41,6 +41,16 @@ Image1.jpg
 
 5
  */
+class Point4
+{
+	int x, y;
+	Point4(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+	
+}
 public class island_BFS_14 {
 	static int answer =0, n;
 	static int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1}; //시계 방향으로 8방향

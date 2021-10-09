@@ -1,5 +1,8 @@
 package algorithm_Study.DFS_BFS_sec8;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /*
  14. 피자 배달 거리(삼성 SW역량평가 기출문제 : DFS활용)
 설명
@@ -52,11 +55,68 @@ Image1.jpg
 
 6
  */
+
+class Point3
+{
+	public int x, y;
+	Point3(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+}
 public class pizza_baedal_dfs_15 {
-	static int n, m, len
+	static int n, m, len, answer = Integer.MAX_VALUE;
+	static int[] combi;
+	static ArrayList<Point3> pz, hs;
+	static void DFS(int L, int s)
+	{
+		if(L==m)
+		{
+			for(int x : combi)
+			{
+				System.out.print(x+ " ");
+			}
+			System.out.println();
+		}
+		else
+		{
+			for(int i = s; i<len;i++) //피자집 뽑기
+			{
+				combi[L] = i; 
+				DFS(L+1, i+1); 
+				
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Scanner kb = new Scanner(System.in);
+		n = kb.nextInt();
+		m = kb.nextInt();
+		pz = new ArrayList<>();
+		hs = new ArrayList<>();
+		
+		for(int i=0; i<n; i++)
+		{
+			for(int j=0; j<n; j++)
+			{
+				int tmp = kb.nextInt();
+				if(tmp==1)
+				{
+					hs.add(new Point3(i, j)); //집일때 추가
+				}
+				else if(tmp==2)
+				{
+					pz.add(new Point3(i, j)); //피자집일때 추가
+				}
+			}
+		}
+		len = pz.size();
+			combi = new int[m];	//구하고자 하는 것 : lenCm
+			DFS(0,0);
+		System.out.println(answer);
 	}
 
 }

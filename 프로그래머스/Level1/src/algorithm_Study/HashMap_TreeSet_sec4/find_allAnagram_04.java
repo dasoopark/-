@@ -27,9 +27,8 @@ abc
 
 3
 ÈùÆ®
-
-
  */
+ 	
 public class find_allAnagram_04 {
 
 	public static void main(String[] args) {

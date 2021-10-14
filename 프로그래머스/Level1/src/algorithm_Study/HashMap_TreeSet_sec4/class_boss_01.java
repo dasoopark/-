@@ -37,7 +37,7 @@ public class class_boss_01 {
 		{
 			//map 객체에 x가 만들어져 있으면 , x라는 키의 값을 가져오고 키가 존재하지 않으면 0을 리턴하라.
 			map.put(x,map.getOrDefault(x, 0)+1);
-			//키의 값을 가져오면서  +1씩 해주면서 갱신함!
+			//키의 값을 가져오면서  +1씩 해주면서 s갱신함!
 		}
 		
 		//containsKey => 애라는 키 가 있냐 ? True or False 리턴
@@ -48,7 +48,7 @@ public class class_boss_01 {
 		for (char key : map.keySet())
 		{
 			//get => get을해서 key의 value 값을 얻어와라
-			//System.out.println(key+" "+map.get(key));
+			//System.out.pxrintln(key+" "+map.get(key));
 			if(map.get(key)>max)
 			{
 				max = map.get(key);

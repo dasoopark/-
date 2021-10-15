@@ -43,7 +43,7 @@ public class delete_parenthesis_02 {
 			{
 				stack.push(x); //알파벳 아니면 여는 괄호 일 때
 			}
-		}
+		} 
 		for(int i=0; i<stack.size();i++)
 		{
 			answer+=stack.get(i);

@@ -89,7 +89,7 @@ public class iron_bar_05 {
 			}
 		}
 		return answer;
-	}
+	}2
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner kb = new Scanner(System.in);

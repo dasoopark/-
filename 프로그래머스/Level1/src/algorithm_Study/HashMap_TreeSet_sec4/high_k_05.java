@@ -1,5 +1,9 @@
 package algorithm_Study.HashMap_TreeSet_sec4;
 
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.TreeSet;
+
 /*
  5. K번째 큰 수
 설명
@@ -30,9 +34,26 @@ package algorithm_Study.HashMap_TreeSet_sec4;
 143
  */
 public class high_k_05 {
+	static int solution(int []arr, int n, int k)
+	{
+		int answer = 0;
+		TreeSet<Integer> Test = new TreeSet<>(Collections.reverseOrder());
+		
+		return answer;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		int k = kb.nextInt();
+		int [] arr = new int[n];
+		for(int i = 0; i<n; i++)
+		{
+			arr[i] = kb.nextInt();
+		}
+		System.out.println(solution(arr,n,k));
+		
 
 	}
 

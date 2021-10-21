@@ -70,7 +70,7 @@ public class hospital_08 {
 	{
 		int answer = 0;
 		Queue<Person> Q = new LinkedList<>(); //구조체 담기위해 링크드리스트의 큐로 생성
-		r
+		
 		for(int i =0; i<n ;i++)
 		{
 			Q.offer(new Person(i, arr[i])); // (0,60) 

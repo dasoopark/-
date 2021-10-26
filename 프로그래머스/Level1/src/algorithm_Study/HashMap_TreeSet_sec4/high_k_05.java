@@ -29,8 +29,8 @@ import java.util.TreeSet;
 
 10 3
 13 15 34 23 45 65 33 11 26 42
-예시 출력 1
 
+예시 출력 1
 143
  */
 public class high_k_05 {
@@ -39,6 +39,20 @@ public class high_k_05 {
 		int answer = 0;
 		TreeSet<Integer> Test = new TreeSet<>(Collections.reverseOrder());
 		
+		for(int i=0; i<n;i++)
+		{
+			for(int j=i+1;j<n;j++) //j = i+1  => i 뒤편부터 돌아야 하므로  (조합)
+			{
+				for(int l=j+1 ; l<n; l++)
+				{
+					Test.add(arr[i]+arr[j]+arr[l]);
+				}
+			}
+		}
+		for(int x : Test)
+		{
+			System.out.println(x);
+		}
 		return answer;
 	}
 

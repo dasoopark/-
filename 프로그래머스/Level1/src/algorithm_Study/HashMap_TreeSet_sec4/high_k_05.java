@@ -36,7 +36,7 @@ import java.util.TreeSet;
 public class high_k_05 {
 	static int solution(int []arr, int n, int k)
 	{
-		int answer = 0;
+		int answer = -1;
 		TreeSet<Integer> Test = new TreeSet<>(Collections.reverseOrder());
 		
 		for(int i=0; i<n;i++)
@@ -49,9 +49,13 @@ public class high_k_05 {
 				}
 			}
 		}
+		
+		int cnt = 0;
 		for(int x : Test)
 		{
-			System.out.println(x);
+			cnt++;
+			if(cnt == k) return x;
+			System.out.println(cnt + "-" + x);
 		}
 		return answer;
 	}

@@ -51,6 +51,7 @@ public class high_k_05 {
 		}
 		
 		int cnt = 0;
+		
 		for(int x : Test)
 		{
 			cnt++;

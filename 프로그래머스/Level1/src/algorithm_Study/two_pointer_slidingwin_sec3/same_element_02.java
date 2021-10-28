@@ -1,5 +1,8 @@
 package algorithm_Study.two_pointer_slidingwin_sec3;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  2. 공통원소 구하기
  
@@ -34,9 +37,32 @@ A, B 두 개의 집합이 주어지면 두 집합의 공통 원소를 추출하여 오름차순으로 출력하�
  */
 
 public class same_element_02 {
+	static public ArrayList<Integer> solution(int n, int m, int[] a, int []b)
+	{
+		ArrayList<Integer> answer = new ArrayList<>();
+		
+		Arrays.sort(a);  //오름차순 정렬
+		Arrays.sort(b); //b
+		
+		int p1=0, p2=0; //투포인터 설정
+		
+		while(p1<n && p2< m)
+		{
+			if(a[p1] == b[p2])
+			{
+				answer.add(a[p1++]);
+				p2++; //포인터 증가
+			}
+			
+			else if(a[p1]
+			return answer;
+		}
+		
+		return answer;
+	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 
 	}
 

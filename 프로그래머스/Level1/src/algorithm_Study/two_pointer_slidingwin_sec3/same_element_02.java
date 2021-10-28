@@ -2,6 +2,7 @@ package algorithm_Study.two_pointer_slidingwin_sec3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /*
  2. 공통원소 구하기
@@ -54,8 +55,15 @@ public class same_element_02 {
 				p2++; //포인터 증가
 			}
 			
-			else if(a[p1]
-			return answer;
+			else if(a[p1]<b[p2])
+			{
+				p1++;
+			}
+			else
+			{
+				p2++;
+			}
+		
 		}
 		
 		return answer;
@@ -63,7 +71,25 @@ public class same_element_02 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub 
-
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		int [] a = new int[n];
+		for(int i=0; i<n; i++)
+		{
+			a[i] = kb.nextInt();
+		}
+		int m = kb.nextInt();
+		int []b = new int[m];
+		
+		for(int i=0; i<m; i++)
+		{
+			b[i] = kb.nextInt();
+		}
+		
+		for(int x : solution(n,m,a,b))
+		{
+			System.out.println(x+" ");
+		}
 	}
 
 }

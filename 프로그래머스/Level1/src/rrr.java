@@ -31,7 +31,7 @@ N개의 수로 이루어진 수열이 주어집니다.
 
 3
  */
-public class continue_sequence_04 {
+public class rrr {
 	
 	static int solution(int n, int m, int[] arr)
 	{

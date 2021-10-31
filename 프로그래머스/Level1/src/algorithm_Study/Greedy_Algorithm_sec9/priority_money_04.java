@@ -70,7 +70,7 @@ public class priority_money_04 {
 					break; 			// Ex) => 3일에서 2로 바뀔 때 말하는거임 
 				 pQ.offer(arr.get(j).money); // time마다 money 넣어줌 
 			}
-		rx`
+		
 			if(!pQ.isEmpty())
 			{
 				answer += pQ.poll(); //가장 큰 값 꺼내서 넣게됨.- reversOrder때문

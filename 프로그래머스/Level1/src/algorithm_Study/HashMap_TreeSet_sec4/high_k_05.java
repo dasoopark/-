@@ -43,7 +43,7 @@ public class high_k_05 {
 		{
 			for(int j=i+1;j<n;j++) //j = i+1  => i 뒤편부터 돌아야 하므로  (조합)
 			{
-				for(int l=j+1 ; l<n; l++)
+				for(int l=j+1 ; l<n; l++) 
 				{
 					Test.add(arr[i]+arr[j]+arr[l]);
 				}

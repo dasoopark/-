@@ -30,7 +30,7 @@ study
  */
 public class moonjang_sok_word_03 {
 	
-	public static String solution(String str)
+	public static String solution_split(String str)
 	{
 		String answer = "";
 		int m = Integer.MIN_VALUE;
@@ -48,12 +48,36 @@ public class moonjang_sok_word_03 {
 		
 		return answer;
 	}
+	
+	public static String solution_indexof(String str)
+	{
+		String answer= ""; //indexof => 띄어쓰는 곳의 위치를 말해줌
+		int m = Integer.MIN_VALUE;
+		int pos;
+		
+		while((pos=str.indexOf(' '))!=-1){ //띄어쓰기를 발견하면 해당 인덱스 반환(띄어쓰기 된 인덱스) 못하면은 -1을 반환
+			String tmp = str.substring(0, pos); //0번부터 pos전까지 ( pos-1까지 인덱스 )
+			int len = tmp.length();
+			if(len>m) // 같다고>= 하면 가장 앞에서부터 기준이 되는것에 벗어나서 같다고하면 안됨 , 뒤쪽 단어가 답이 되버림
+			{
+				m = len;
+				answer=tmp;
+			}
+			str = str.substring(pos+1); //띄어쓰기 후 그 앞에 단어부터 재정립 it is time  => is time 부터 시작 
+		}
+		if(str.length()>m)
+		{
+			answer = str; //마지막 단어 처리 해야함!
+		}
+		return answer;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner kb = new Scanner(System.in);
 		String str = kb.nextLine();
-		System.out.println(solution(str));
+		//System.out.println(solution_split(str));
+		System.out.println(solution_indexof(str));
 	}
 
 }

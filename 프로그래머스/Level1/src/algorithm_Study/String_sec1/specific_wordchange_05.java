@@ -1,5 +1,7 @@
 package algorithm_Study.String_sec1;
 
+import java.util.Scanner;
+
 /*
  5. 특정 문자 뒤집기
 설명
@@ -26,9 +28,41 @@ S#T!EG*b@a
 
  */
 public class specific_wordchange_05 {
-
+	static public String solution(String str)
+	{
+		String answer;
+		char[] s = str.toCharArray(); //문자 배열
+		int lt = 0, rt = str.length()-1; //맨끝 문자열, 0번 인덱스 부터 시작하니깐
+		  
+		while(lt<rt)
+		{
+			if(!Character.isAlphabetic(s[lt])) //알파벳이면 참 반환 
+			{
+				lt++;
+			}
+			else if(!Character.isAlphabetic(s[rt]))
+			{
+				rt--;
+			}
+			else 
+			{
+				char tmp = s[lt]; 
+				s[lt] = s[rt];
+				s[rt] = tmp;
+				lt++;
+				rt--;
+			}
+			
+		}
+		answer = String.valueOf(s); // answer은 String형태이므로 char형 배열 s를 String으로 바꿔줘야함.
+		return answer;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		Scanner kb = new Scanner(System.in);
+		String str = kb.next();
+		System.out.println(solution(str));
 
 	}
 

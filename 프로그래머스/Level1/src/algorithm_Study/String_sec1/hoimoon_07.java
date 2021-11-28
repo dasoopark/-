@@ -44,11 +44,24 @@ public class hoimoon_07 {
 		}
 		return answer;
 	}
+	
+	public static String solution_builder(String str)
+	{
+		String answer ="NO";
+		String tmp = new StringBuilder(str).reverse().toString(); //뒤집어지게 함
+		
+		if(str.equalsIgnoreCase(tmp)) //equalsIgnoreCase : 대문자 무시하고 비교하는 기능
+		{
+			answer="YES";
+		}
+		
+		return answer;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner kb = new Scanner(System.in);
 		String str = kb.next();
-		System.out.println(solution(str));
+		System.out.println(solution_builder(str));
 	}
 
 }
